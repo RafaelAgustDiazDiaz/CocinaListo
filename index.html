@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#173a30" />
+    <meta name="description" content="CocinaListo es la app de recetas inteligentes que convierte los ingredientes que ya tienes en comidas personalizadas y fáciles de preparar." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="CocinaListo — Cocina inteligente, sabor de casa" />
+    <meta property="og:description" content="Recetas personalizadas con los ingredientes que ya tienes." />
+    <meta property="og:image" content="assets/social-card.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CocinaListo — Cocina inteligente, sabor de casa" />
+    <meta name="twitter:description" content="Recetas personalizadas con los ingredientes que ya tienes." />
+    <meta name="twitter:image" content="assets/social-card.png" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="stylesheet" href="styles.css?v=3" />
+    <title>CocinaListo — Cocina inteligente, sabor de casa</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Ir al contenido</a>
+
+    <header class="site-header">
+      <div class="shell nav-wrap">
+        <a class="logo" href="#inicio" aria-label="CocinaListo, inicio">
+          <img src="assets/cocinalisto-mark.png" alt="" width="48" height="48" />
+          <span>Cocina<strong>Listo</strong></span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+          <span class="sr-only">Abrir menú</span>
+        </button>
+
+        <nav id="nav-links" class="nav-links" aria-label="Navegación principal">
+          <a href="#beneficios">Qué hace</a>
+          <a href="#como-funciona">Cómo funciona</a>
+          <a href="#historia">Nuestra idea</a>
+          <a class="nav-cta" href="https://cocina-listo-rd.centro-finan-3005.chatgpt.site/" target="_blank" rel="noreferrer">Probar la app <span>↗</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <section class="hero" id="inicio">
+        <div class="hero-glow hero-glow-one"></div>
+        <div class="hero-glow hero-glow-two"></div>
+        <div class="shell hero-grid">
+          <div class="hero-copy reveal">
+            <div class="eyebrow"><span>✦</span> App de recetas inteligentes</div>
+            <h1>¿Qué tienes? <em>Nosotros ponemos la receta.</em></h1>
+            <p class="hero-text"><strong>CocinaListo convierte los ingredientes de tu cocina en recetas personalizadas</strong>, con pasos claros, porciones ajustadas y una lista de compras automática.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="https://cocina-listo-rd.centro-finan-3005.chatgpt.site/" target="_blank" rel="noreferrer">Probar con mis ingredientes <span>→</span></a>
+              <a class="button button-ghost" href="#demo">Ver cómo funciona <span>↓</span></a>
+            </div>
+            <div class="hero-flow" aria-label="Cómo funciona CocinaListo">
+              <div><b>1</b><span>Agrega lo que tienes</span></div>
+              <i>→</i>
+              <div><b>2</b><span>Recibe tu receta</span></div>
+              <i>→</i>
+              <div><b>3</b><span>Cocina y disfruta</span></div>
+            </div>
+          </div>
+
+          <div class="product-stage reveal" id="demo">
+            <div class="stage-sun"></div>
+            <div class="floating-note note-top"><span>✦</span><b>Receta personalizada</b><small>con tus ingredientes</small></div>
+            <div class="app-window">
+              <div class="window-bar">
+                <div class="mini-logo"><img src="assets/cocinalisto-mark.png" alt="" /></div>
+                <span>Mi cocina</span>
+                <div class="window-dots"><i></i><i></i><i></i></div>
+              </div>
+              <div class="window-body">
+                <p class="micro-label">DE TU COCINA A LA MESA</p>
+                <h2>Agrega lo que tienes</h2>
+                <div class="demo-input"><span>⌕</span><p>Agrega un ingrediente...</p><b>+</b></div>
+                <div class="demo-chips" aria-label="Selecciona ingredientes de ejemplo">
+                  <button class="active" data-ingredient="pollo">Pollo <span>×</span></button>
+                  <button class="active" data-ingredient="arroz">Arroz <span>×</span></button>
+                  <button class="active" data-ingredient="tomate">Tomate <span>×</span></button>
+                  <button data-ingredient="aguacate">+ Aguacate</button>
+                </div>
+                <div class="recipe-result">
+                  <div class="recipe-visual" id="recipe-emoji">🍲</div>
+                  <div class="recipe-info">
+                    <div class="match"><span id="match-value">94%</span> coincide</div>
+                    <h3 id="recipe-title">Arroz con pollo rápido</h3>
+                    <div class="recipe-meta"><span>◷ <b id="recipe-time">35</b> min</span><span>● Fácil</span></div>
+                    <div class="match-bar"><i id="match-bar"></i></div>
+                  </div>
+                </div>
+                <button class="demo-button" type="button" id="demo-generate">Crear otra receta con IA <span>↻</span></button>
+              </div>
+            </div>
+            <div class="floating-note note-bottom"><b id="saved-count">3</b><small>ingredientes aprovechados</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="impact-strip" aria-label="Impacto de CocinaListo">
+        <div class="shell impact-grid">
+          <div><strong>Ingredientes → receta</strong><span>una respuesta clara en segundos</span></div>
+          <div><strong>Hecha para ti</strong><span>porciones, tiempo y restricciones</span></div>
+          <div><strong>Compra menos</strong><span>aprovecha primero lo que ya tienes</span></div>
+          <p>Hecho con sazón en República Dominicana <span>🇩🇴</span></p>
+        </div>
+      </section>
+
+      <section class="section benefits" id="beneficios">
+        <div class="shell">
+          <div class="section-heading reveal">
+            <div class="eyebrow"><span>✦</span> Una mejor manera de cocinar</div>
+            <h2>Todo lo que necesitas para decidir, cocinar y aprovechar.</h2>
+            <p>No es otro recetario. CocinaListo parte de lo que realmente hay en tu cocina y construye una receta alrededor de ti.</p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card feature-large reveal">
+              <div class="feature-icon coral">◎</div>
+              <div>
+                <span class="card-kicker">APROVECHA MÁS</span>
+                <h3>Tu despensa se convierte en posibilidades.</h3>
+                <p>Combina lo que ya tienes y descubre recetas donde cada ingrediente cuenta.</p>
+              </div>
+              <div class="pantry-visual" aria-hidden="true">
+                <span>🍅</span><span>🥑</span><span>🫘</span><span>🍗</span><span>🍚</span>
+              </div>
+            </article>
+
+            <article class="feature-card feature-dark reveal">
+              <div class="feature-icon gold">✦</div>
+              <span class="card-kicker">PERSONALIZADO</span>
+              <h3>Una receta pensada para ti.</h3>
+              <p>Ajusta porciones, tiempo, preferencias e ingredientes que deseas evitar.</p>
+              <div class="preference-pills"><span>30 min</span><span>2 personas</span><span>Sin lácteos</span></div>
+            </article>
+
+            <article class="feature-card reveal">
+              <div class="feature-icon green">↔</div>
+              <span class="card-kicker">FLEXIBLE</span>
+              <h3>Sustituciones que resuelven.</h3>
+              <p>Si falta algo, CocinaListo propone alternativas prácticas para que puedas seguir cocinando.</p>
+              <div class="swap-demo"><span>Queso</span><b>→</b><span>Yogur natural</span></div>
+            </article>
+
+            <article class="feature-card feature-list reveal">
+              <div class="feature-icon yellow">✓</div>
+              <span class="card-kicker">TODO EN ORDEN</span>
+              <h3>Tu lista de compras se arma sola.</h3>
+              <ul><li><i></i>Ajo</li><li><i></i>Limón</li><li class="done"><i></i>Cebolla</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section process" id="como-funciona">
+        <div class="shell">
+          <div class="section-heading light reveal">
+            <div class="eyebrow"><span>✦</span> Así de simple</div>
+            <h2>De lo que tienes a un plato listo.</h2>
+          </div>
+          <div class="process-grid">
+            <article class="process-step reveal"><b>01</b><div class="process-icon">🥕</div><h3>Agrega tus ingredientes</h3><p>Escribe o selecciona lo que encuentres en tu cocina.</p></article>
+            <div class="process-line" aria-hidden="true"></div>
+            <article class="process-step reveal"><b>02</b><div class="process-icon">✦</div><h3>Elige tus preferencias</h3><p>Indica tiempo, porciones y cualquier restricción.</p></article>
+            <div class="process-line" aria-hidden="true"></div>
+            <article class="process-step reveal"><b>03</b><div class="process-icon">🍽️</div><h3>Cocina y disfruta</h3><p>Sigue pasos claros y aprovecha mejor cada compra.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section story" id="historia">
+        <div class="shell story-grid">
+          <div class="story-visual reveal" aria-hidden="true">
+            <div class="story-circle"><img src="assets/cocinalisto-mark.png" alt="" /></div>
+            <span class="story-leaf leaf-one">🌿</span>
+            <span class="story-leaf leaf-two">🍋</span>
+            <div class="story-badge"><b>Hecho aquí</b><span>para cocinas reales</span></div>
+          </div>
+          <div class="story-copy reveal">
+            <div class="eyebrow"><span>✦</span> Nuestra idea</div>
+            <h2>La tecnología también puede tener sabor de casa.</h2>
+            <p>CocinaListo nació de una pregunta cotidiana: <strong>“¿Qué cocino con lo que tengo?”</strong> Queremos que la respuesta sea útil, cercana y deliciosa.</p>
+            <p>Por eso combinamos tecnología inteligente con la flexibilidad de la cocina dominicana y latinoamericana.</p>
+            <div class="story-values"><span><b>Local</b>Sabores cercanos</span><span><b>Práctico</b>Pasos sin complicación</span><span><b>Consciente</b>Menos desperdicio</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta">
+        <div class="shell cta-card reveal">
+          <div class="cta-spark">✦</div>
+          <div>
+            <span class="card-kicker">TU PRÓXIMO PLATO EMPIEZA AQUÍ</span>
+            <h2>¿Qué tienes en la cocina?</h2>
+            <p>Conviértelo en algo delicioso en menos de un minuto.</p>
+          </div>
+          <a class="button button-light" href="https://cocina-listo-rd.centro-finan-3005.chatgpt.site/" target="_blank" rel="noreferrer">Probar CocinaListo <span>→</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <a class="logo footer-logo" href="#inicio"><img src="assets/cocinalisto-mark.png" alt="" width="44" height="44" /><span>Cocina<strong>Listo</strong></span></a>
+        <p>Cocina con lo que tienes.<br />Disfruta más, desperdicia menos.</p>
+        <div class="footer-links"><a href="#beneficios">Beneficios</a><a href="#como-funciona">Cómo funciona</a><a href="https://cocina-listo-rd.centro-finan-3005.chatgpt.site/" target="_blank" rel="noreferrer">Abrir app ↗</a></div>
+      </div>
+      <div class="shell footer-bottom"><span>© <span id="year"></span> CocinaListo</span><span>República Dominicana 🇩🇴</span></div>
+    </footer>
+
+    <script src="script.js?v=3"></script>
+  </body>
+</html>
