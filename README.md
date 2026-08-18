@@ -23,3 +23,4 @@ Página estática de presentación para CocinaListo. No requiere instalación, c
 - `styles.css`: diseño responsive.
 - `script.js`: menú, animaciones y demo interactiva.
 - `assets/`: logo, favicon y tarjeta para redes sociales.
+- Última actualización: mejoras de diseño y legibilidad.
