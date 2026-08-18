@@ -42,6 +42,7 @@ const ingredientInput = document.querySelector("#ingredient-input");
 const ingredientForm = document.querySelector("#demo-form");
 const generateButton = document.querySelector("#demo-generate");
 const demoStatus = document.querySelector("#demo-status");
+const recipeResult = document.querySelector("#recipe-result");
 
 const activeIngredients = () => [...document.querySelectorAll("[data-ingredient].active")]
   .map((button) => normalizeIngredient(button.dataset.ingredient));
@@ -53,16 +54,32 @@ const ingredientsMatch = (available, required) => available.some((item) =>
 const renderRecipe = (recipe, match) => {
   const emoji = document.querySelector("#recipe-emoji");
   document.querySelector("#recipe-title").textContent = recipe.title;
-  document.querySelector("#recipe-time").textContent = recipe.time;
   document.querySelector("#recipe-copy").textContent = recipe.copy;
-  document.querySelector("#match-value").textContent = `${match}%`;
+  document.querySelector("#match-value").textContent = `${match}% coincide`;
   document.querySelector("#match-bar").style.width = `${match}%`;
+  const meta = document.querySelector(".recipe-meta");
+  meta.replaceChildren();
+  const time = document.createElement("span");
+  time.textContent = `◷ ${recipe.time} min`;
+  const difficulty = document.createElement("span");
+  difficulty.textContent = "● Fácil";
+  meta.append(time, difficulty);
   emoji.textContent = recipe.emoji;
   emoji.style.background = recipe.color;
+  recipeResult.classList.remove("empty");
+  recipeResult.dataset.state = "ready";
 };
 
-const updateIngredientCount = () => {
-  document.querySelector("#saved-count").textContent = activeIngredients().length;
+const updateIngredientState = () => {
+  const count = activeIngredients().length;
+  generateButton.disabled = count === 0;
+  document.querySelectorAll("[data-ingredient]").forEach((button) => {
+    const indicator = button.querySelector("span");
+    if (indicator) indicator.textContent = button.classList.contains("active") ? "✓" : "+";
+  });
+  demoStatus.textContent = count
+    ? `${count} ingrediente${count === 1 ? "" : "s"} listo${count === 1 ? "" : "s"}. Ahora pulsa “Generar mi receta”.`
+    : "Agrega al menos un ingrediente para continuar.";
 };
 
 const createRecipe = () => {
@@ -83,13 +100,7 @@ const createRecipe = () => {
   const best = ranked[0];
   const match = Math.min(98, 68 + best.hits * 10 + Math.min(available.length, 3));
   renderRecipe(best.recipe, match);
-  demoStatus.textContent = `Receta creada con ${available.length} ingrediente${available.length === 1 ? "" : "s"}.`;
-  generateButton.classList.add("is-ready");
-  generateButton.firstChild.textContent = "¡Receta lista! ";
-  setTimeout(() => {
-    generateButton.classList.remove("is-ready");
-    generateButton.firstChild.textContent = "Crear mi receta ";
-  }, 1500);
+  demoStatus.textContent = `¡Lista! Creamos una receta con ${available.length} ingrediente${available.length === 1 ? "" : "s"}.`;
 };
 
 const addIngredient = (rawValue) => {
@@ -108,7 +119,7 @@ const addIngredient = (rawValue) => {
   button.dataset.ingredient = value;
   button.append(document.createTextNode(`${rawValue.trim()} `));
   const remove = document.createElement("span");
-  remove.textContent = "×";
+  remove.textContent = "✓";
   button.append(remove);
   chips.append(button);
 };
@@ -117,31 +128,29 @@ ingredientForm?.addEventListener("submit", (event) => {
   event.preventDefault();
   const values = ingredientInput.value.split(",").map((item) => item.trim()).filter(Boolean);
   if (!values.length) {
-    createRecipe();
+    ingredientForm.classList.add("has-error");
+    demoStatus.textContent = "Escribe un ingrediente o toca uno de los ejemplos.";
+    ingredientInput.focus();
+    setTimeout(() => ingredientForm.classList.remove("has-error"), 400);
     return;
   }
   values.forEach(addIngredient);
   ingredientInput.value = "";
-  updateIngredientCount();
-  createRecipe();
+  updateIngredientState();
 });
 
 chips?.addEventListener("click", (event) => {
   const button = event.target.closest("[data-ingredient]");
   if (!button) return;
   button.classList.toggle("active");
-  updateIngredientCount();
-  demoStatus.textContent = button.classList.contains("active")
-    ? `${button.dataset.ingredient} agregado.`
-    : `${button.dataset.ingredient} quitado.`;
+  updateIngredientState();
 });
 
 generateButton?.addEventListener("click", createRecipe);
 
 document.querySelectorAll(".try-link").forEach((link) => {
-  link.addEventListener("click", () => setTimeout(() => ingredientInput?.focus(), 450));
+  link.addEventListener("click", () => setTimeout(() => ingredientInput?.focus({ preventScroll: true }), 450));
 });
 
-updateIngredientCount();
-renderRecipe(recipes[0], 94);
+updateIngredientState();
 document.querySelector("#year").textContent = new Date().getFullYear();

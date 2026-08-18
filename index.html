@@ -14,7 +14,7 @@
     <meta name="twitter:description" content="Recetas personalizadas con los ingredientes que ya tienes." />
     <meta name="twitter:image" content="assets/social-card.png" />
     <link rel="icon" type="image/png" href="assets/favicon.png" />
-    <link rel="stylesheet" href="styles.css?v=5" />
+    <link rel="stylesheet" href="styles.css?v=8" />
     <title>CocinaListo — Cocina inteligente, sabor de casa</title>
   </head>
   <body>
@@ -36,7 +36,7 @@
           <a href="#beneficios">Qué hace</a>
           <a href="#como-funciona">Cómo funciona</a>
           <a href="#historia">Nuestra idea</a>
-          <a class="nav-cta try-link" href="#demo-form">Probar aquí <span>↓</span></a>
+          <a class="nav-cta try-link" href="#demo">Crear una receta <span>↓</span></a>
         </nav>
       </div>
     </header>
@@ -51,57 +51,50 @@
             <h1>¿Qué tienes? <em>Nosotros ponemos la receta.</em></h1>
             <p class="hero-text"><strong>CocinaListo convierte los ingredientes de tu cocina en recetas personalizadas</strong>, con pasos claros, porciones ajustadas y una lista de compras automática.</p>
             <div class="hero-actions">
-              <a class="button button-primary try-link" href="#demo-form">Probar aquí <span>↓</span></a>
-              <a class="button button-ghost" href="#demo">Ver cómo funciona <span>↓</span></a>
+              <a class="button button-primary try-link" href="#demo">Crear receta con mis ingredientes <span>↓</span></a>
             </div>
-            <div class="hero-flow" aria-label="Cómo funciona CocinaListo">
-              <div><b>1</b><span>Agrega lo que tienes</span></div>
-              <i>→</i>
-              <div><b>2</b><span>Recibe tu receta</span></div>
-              <i>→</i>
-              <div><b>3</b><span>Cocina y disfruta</span></div>
-            </div>
+            <p class="hero-start-note"><span>✓</span> Pruébalo aquí mismo · No necesitas una cuenta</p>
           </div>
 
           <div class="product-stage reveal" id="demo">
             <div class="stage-sun"></div>
-            <div class="floating-note note-top"><span>✦</span><b>Receta personalizada</b><small>con tus ingredientes</small></div>
             <div class="app-window">
               <div class="window-bar">
                 <div class="mini-logo"><img src="assets/cocinalisto-mark.png" alt="" /></div>
-                <span>Mi cocina</span>
+                <span>Demo CocinaListo</span>
                 <div class="window-dots"><i></i><i></i><i></i></div>
               </div>
               <div class="window-body">
-                <p class="micro-label">DE TU COCINA A LA MESA</p>
-                <h2>Agrega lo que tienes</h2>
+                <p class="demo-guide"><span></span> PRUEBA INTERACTIVA · FUNCIONA AQUÍ</p>
+                <h2>Crea una receta ahora</h2>
+                <p class="demo-instruction"><b>1.</b> Escribe tus ingredientes separados por comas.</p>
                 <form class="demo-input" id="demo-form">
                   <label class="sr-only" for="ingredient-input">Escribe uno o varios ingredientes</label>
                   <span aria-hidden="true">⌕</span>
                   <input id="ingredient-input" type="text" placeholder="Ej.: pollo, arroz, tomate" autocomplete="off" />
-                  <button type="submit" aria-label="Agregar ingredientes">+</button>
+                  <button type="submit" aria-label="Agregar ingredientes">Agregar</button>
                 </form>
+                <p class="demo-options-label"><b>2.</b> O toca algunos ingredientes:</p>
                 <div class="demo-chips" aria-label="Selecciona ingredientes de ejemplo">
-                  <button class="active" data-ingredient="pollo">Pollo <span>×</span></button>
-                  <button class="active" data-ingredient="arroz">Arroz <span>×</span></button>
-                  <button class="active" data-ingredient="tomate">Tomate <span>×</span></button>
-                  <button data-ingredient="aguacate">+ Aguacate</button>
+                  <button data-ingredient="pollo">Pollo <span>+</span></button>
+                  <button data-ingredient="arroz">Arroz <span>+</span></button>
+                  <button data-ingredient="tomate">Tomate <span>+</span></button>
+                  <button data-ingredient="aguacate">Aguacate <span>+</span></button>
                 </div>
-                <div class="recipe-result">
-                  <div class="recipe-visual" id="recipe-emoji">🍲</div>
+                <button class="demo-button" type="button" id="demo-generate" disabled>3. Generar mi receta <span>→</span></button>
+                <p class="demo-hint" id="demo-status" aria-live="polite">Agrega al menos un ingrediente para continuar.</p>
+                <div class="recipe-result empty" id="recipe-result" data-state="empty">
+                  <div class="recipe-visual" id="recipe-emoji">✨</div>
                   <div class="recipe-info">
-                    <div class="match"><span id="match-value">94%</span> coincide</div>
-                    <h3 id="recipe-title">Arroz con pollo rápido</h3>
-                    <div class="recipe-meta"><span>◷ <b id="recipe-time">35</b> min</span><span>● Fácil</span></div>
-                    <p class="recipe-copy" id="recipe-copy">Una comida completa con lo que ya tienes.</p>
+                    <div class="match"><span id="match-value">RESULTADO</span></div>
+                    <h3 id="recipe-title">Tu receta aparecerá aquí</h3>
+                    <div class="recipe-meta"><span>Lista después de elegir tus ingredientes</span></div>
+                    <p class="recipe-copy" id="recipe-copy">La recomendación se crea sin salir de esta página.</p>
                     <div class="match-bar"><i id="match-bar"></i></div>
                   </div>
                 </div>
-                <button class="demo-button" type="button" id="demo-generate">Crear mi receta <span>✦</span></button>
-                <p class="demo-hint" id="demo-status" aria-live="polite">Agrega ingredientes o selecciona los ejemplos.</p>
               </div>
             </div>
-            <div class="floating-note note-bottom"><b id="saved-count">3</b><small>ingredientes aprovechados</small></div>
           </div>
         </div>
       </section>
@@ -204,7 +197,7 @@
             <h2>¿Qué tienes en la cocina?</h2>
             <p>Conviértelo en algo delicioso en menos de un minuto.</p>
           </div>
-          <a class="button button-light try-link" href="#demo-form">Probar aquí <span>↑</span></a>
+          <a class="button button-light try-link" href="#demo">Crear receta ahora <span>↑</span></a>
         </div>
       </section>
     </main>
@@ -218,6 +211,6 @@
       <div class="shell footer-bottom"><span>© <span id="year"></span> CocinaListo</span><span>República Dominicana 🇩🇴</span></div>
     </footer>
 
-    <script src="script.js?v=5"></script>
+    <script src="script.js?v=8"></script>
   </body>
 </html>
