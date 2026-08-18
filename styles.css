@@ -75,10 +75,13 @@ button { font: inherit; }
 .window-body { padding: 25px 25px 27px; }
 .micro-label, .card-kicker { margin: 0; color: var(--coral); font-size: 9px; font-weight: 900; letter-spacing: 1.4px; }
 .window-body > h2 { margin: 5px 0 15px; font-family: Georgia, serif; font-size: 28px; font-weight: 500; }
-.demo-input { height: 44px; display: flex; align-items: center; gap: 8px; padding: 0 8px 0 12px; border: 1px solid #d5d1c7; border-radius: 10px; background: white; }
+.demo-input { height: 44px; display: flex; align-items: center; gap: 8px; padding: 0 8px 0 12px; scroll-margin-top: 110px; border: 1px solid #d5d1c7; border-radius: 10px; background: white; }
 .demo-input > span { color: #78857f; font-size: 18px; }
-.demo-input p { flex: 1; margin: 0; color: #99a19d; font-size: 11px; }
-.demo-input b { display: grid; place-items: center; width: 29px; height: 29px; border-radius: 8px; background: var(--ink); color: white; }
+.demo-input input { min-width: 0; flex: 1; border: 0; outline: 0; background: transparent; color: var(--ink); font: inherit; font-size: 11px; }
+.demo-input input::placeholder { color: #99a19d; }
+.demo-input:focus-within { border-color: var(--green); box-shadow: 0 0 0 3px rgba(45,106,77,.12); }
+.demo-input button { display: grid; place-items: center; width: 29px; height: 29px; border: 0; border-radius: 8px; background: var(--ink); color: white; font-size: 18px; cursor: pointer; }
+.demo-input.has-error { border-color: var(--coral); animation: input-shake .25s linear; }
 .demo-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 11px 0 17px; }
 .demo-chips button { border: 1px solid #d9d6cd; border-radius: 999px; padding: 6px 9px; background: transparent; color: #68766f; font-size: 9px; font-weight: 750; cursor: pointer; }
 .demo-chips button.active { border-color: #c9dfd0; background: #e3efe7; color: var(--ink-2); }
@@ -90,10 +93,15 @@ button { font: inherit; }
 .match span { font-size: 14px; }
 .recipe-info h3 { min-height: 34px; margin: 5px 0 6px; font: 16px/1.05 Georgia, serif; }
 .recipe-meta { display: flex; gap: 12px; color: #76837d; font-size: 8px; font-weight: 700; }
+.recipe-copy { margin: 7px 0 0; color: #718078; font-size: 8px; line-height: 1.35; }
 .match-bar { height: 4px; margin-top: 10px; overflow: hidden; border-radius: 99px; background: #e5e4de; }
 .match-bar i { display: block; width: 94%; height: 100%; background: var(--ink-2); transition: width .3s; }
 .demo-button { width: 100%; margin-top: 13px; border: 0; border-radius: 9px; padding: 11px; background: var(--coral); color: white; font-size: 10px; font-weight: 850; cursor: pointer; }
 .demo-button span { float: right; }
+.demo-button.is-ready { background: var(--green); }
+.demo-hint { margin: 8px 0 0; color: #7a8781; font-size: 8px; text-align: center; }
+.sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@keyframes input-shake { 25% { transform: translateX(-3px); } 75% { transform: translateX(3px); } }
 .floating-note { position: absolute; z-index: 5; border: 1px solid rgba(23,58,48,.1); border-radius: 13px; background: rgba(255,253,248,.96); box-shadow: 0 14px 32px rgba(58,44,25,.14); }
 .note-top { top: 25px; right: -5px; padding: 12px 17px 12px 38px; transform: rotate(4deg); }
 .note-top > span { position: absolute; left: 13px; top: 17px; color: var(--coral); }
@@ -261,7 +269,7 @@ button { font: inherit; }
   .hero-flow > div { display: grid; grid-template-columns: 28px 1fr; align-items: center; gap: 10px; padding: 8px 10px; border: 1px solid rgba(23,58,48,.09); border-radius: 12px; background: rgba(255,255,255,.48); font-size: 11px; }
   .hero-flow b { width: 28px; height: 28px; font-size: 10px; }
   .hero-flow > i { display: none; }
-  .product-stage { min-height: 540px; width: 100%; margin: 0; transform: none; padding: 42px 0 55px; }
+  .product-stage { min-height: 600px; width: 100%; margin: 0; transform: none; padding: 42px 0 55px; }
   .stage-sun { width: min(88vw, 390px); height: min(88vw, 390px); box-shadow: 0 0 0 15px rgba(242,201,110,.14); }
   .app-window { width: min(100%, 385px); transform: none; border-radius: 21px; }
   .window-body { padding: 22px 19px 23px; }
@@ -284,7 +292,7 @@ button { font: inherit; }
   .logo img { width: 41px; height: 41px; }
   .eyebrow { font-size: 9px; letter-spacing: 1.35px; }
   .hero h1 { font-size: clamp(45px, 13.8vw, 58px); }
-  .product-stage { min-height: 505px; padding-top: 34px; }
+  .product-stage { min-height: 585px; padding-top: 34px; }
   .app-window { width: 100%; }
   .window-bar { height: 55px; }
   .window-body > h2 { font-size: 25px; }

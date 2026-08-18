@@ -14,7 +14,7 @@
     <meta name="twitter:description" content="Recetas personalizadas con los ingredientes que ya tienes." />
     <meta name="twitter:image" content="assets/social-card.png" />
     <link rel="icon" type="image/png" href="assets/favicon.png" />
-    <link rel="stylesheet" href="styles.css?v=3" />
+    <link rel="stylesheet" href="styles.css?v=5" />
     <title>CocinaListo — Cocina inteligente, sabor de casa</title>
   </head>
   <body>
@@ -36,7 +36,7 @@
           <a href="#beneficios">Qué hace</a>
           <a href="#como-funciona">Cómo funciona</a>
           <a href="#historia">Nuestra idea</a>
-          <a class="nav-cta" href="#demo">Probar aquí <span>↓</span></a>
+          <a class="nav-cta try-link" href="#demo-form">Probar aquí <span>↓</span></a>
         </nav>
       </div>
     </header>
@@ -51,7 +51,7 @@
             <h1>¿Qué tienes? <em>Nosotros ponemos la receta.</em></h1>
             <p class="hero-text"><strong>CocinaListo convierte los ingredientes de tu cocina en recetas personalizadas</strong>, con pasos claros, porciones ajustadas y una lista de compras automática.</p>
             <div class="hero-actions">
-              <a class="button button-primary" href="#demo">Probar aquí <span>↓</span></a>
+              <a class="button button-primary try-link" href="#demo-form">Probar aquí <span>↓</span></a>
               <a class="button button-ghost" href="#demo">Ver cómo funciona <span>↓</span></a>
             </div>
             <div class="hero-flow" aria-label="Cómo funciona CocinaListo">
@@ -75,7 +75,12 @@
               <div class="window-body">
                 <p class="micro-label">DE TU COCINA A LA MESA</p>
                 <h2>Agrega lo que tienes</h2>
-                <div class="demo-input"><span>⌕</span><p>Agrega un ingrediente...</p><b>+</b></div>
+                <form class="demo-input" id="demo-form">
+                  <label class="sr-only" for="ingredient-input">Escribe uno o varios ingredientes</label>
+                  <span aria-hidden="true">⌕</span>
+                  <input id="ingredient-input" type="text" placeholder="Ej.: pollo, arroz, tomate" autocomplete="off" />
+                  <button type="submit" aria-label="Agregar ingredientes">+</button>
+                </form>
                 <div class="demo-chips" aria-label="Selecciona ingredientes de ejemplo">
                   <button class="active" data-ingredient="pollo">Pollo <span>×</span></button>
                   <button class="active" data-ingredient="arroz">Arroz <span>×</span></button>
@@ -88,10 +93,12 @@
                     <div class="match"><span id="match-value">94%</span> coincide</div>
                     <h3 id="recipe-title">Arroz con pollo rápido</h3>
                     <div class="recipe-meta"><span>◷ <b id="recipe-time">35</b> min</span><span>● Fácil</span></div>
+                    <p class="recipe-copy" id="recipe-copy">Una comida completa con lo que ya tienes.</p>
                     <div class="match-bar"><i id="match-bar"></i></div>
                   </div>
                 </div>
-                <button class="demo-button" type="button" id="demo-generate">Crear otra receta con IA <span>↻</span></button>
+                <button class="demo-button" type="button" id="demo-generate">Crear mi receta <span>✦</span></button>
+                <p class="demo-hint" id="demo-status" aria-live="polite">Agrega ingredientes o selecciona los ejemplos.</p>
               </div>
             </div>
             <div class="floating-note note-bottom"><b id="saved-count">3</b><small>ingredientes aprovechados</small></div>
@@ -197,7 +204,7 @@
             <h2>¿Qué tienes en la cocina?</h2>
             <p>Conviértelo en algo delicioso en menos de un minuto.</p>
           </div>
-          <a class="button button-light" href="#demo">Ver la demostración <span>↑</span></a>
+          <a class="button button-light try-link" href="#demo-form">Probar aquí <span>↑</span></a>
         </div>
       </section>
     </main>
@@ -211,6 +218,6 @@
       <div class="shell footer-bottom"><span>© <span id="year"></span> CocinaListo</span><span>República Dominicana 🇩🇴</span></div>
     </footer>
 
-    <script src="script.js?v=3"></script>
+    <script src="script.js?v=5"></script>
   </body>
 </html>
